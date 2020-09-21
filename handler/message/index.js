@@ -52,7 +52,7 @@ module.exports = msgHandler = async (client = new Client(), message) => {
         case 'ping':
             await client.sendText(from, `Pong!!!!\nSpeed: ${processTime(t, moment())} _Second_`)
             break
-        case 'tnc':
+        case 'help':
             await client.sendText(from, menuId.textTnC())
             break
         case 'menu':
@@ -60,7 +60,7 @@ module.exports = msgHandler = async (client = new Client(), message) => {
             await client.sendText(from, menuId.textMenu(pushname))
                 .then(() => ((isGroupMsg) && (isGroupAdmins)) ? client.sendText(from, 'Menu Admin Grup: *#menuadmin*') : null)
             break
-        case 'menuadmin':
+        case 'ahelp':
             if (!isGroupMsg) return client.reply(from, 'Maaf, perintah ini hanya dapat dipakai didalam grup! [Group Only]', id)
             if (!isGroupAdmins) return client.reply(from, 'Gagal, perintah ini hanya dapat digunakan oleh admin grup! [Admin Group Only]', id)
             await client.sendText(from, menuId.textAdmin())
